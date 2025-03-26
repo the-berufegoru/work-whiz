@@ -17,7 +17,7 @@ RUN npx nx build
 FROM node:21-alpine3.18
 
 # Set environment variables
-ENV NODE_ENV=develpment
+ENV NODE_ENV=development
 
 WORKDIR /work-whiz
 
@@ -25,11 +25,16 @@ WORKDIR /work-whiz
 COPY --from=builder /work-whiz/dist ./dist
 COPY --from=builder /work-whiz/package.json ./
 COPY --from=builder /work-whiz/node_modules ./node_modules
+COPY --from=builder /work-whiz/ecosystem.config.js ./
 
 # Copy the .env file (if it's part of the build process)
 COPY .env .env
 
-ENTRYPOINT [ "node", "--env-file=./.env", "./dist/work-whiz/main.js" ]
-
-# Expose the application port
+# Expose the application port (choose the correct one)
 EXPOSE 4200
+
+# Install PM2 globally
+RUN npm install -g pm2
+
+# Start the app using PM2
+CMD ["pm2-runtime", "ecosystem.config.js"]
