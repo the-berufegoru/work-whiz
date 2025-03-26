@@ -16,10 +16,12 @@
  <em><code>❯ REPLACE-ME</code></em>
 </p>
 <p align="center">
+
+<img src="https://img.shields.io/github/actions/workflow/status/the-berufegoru/work-whiz/ci.yml?branch=main&label=CI&logo=githubactions&logoColor=white&color=0080ff" alt="CI Status">
+<img src="https://img.shields.io/github/actions/workflow/status/the-berufegoru/work-whiz/codeql.yml?branch=main&label=CodeQL&logo=github&logoColor=white&color=yellow" alt="CodeQL Status">
  <img src="https://img.shields.io/github/license/the-berufegoru/work-whiz?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
  <img src="https://img.shields.io/github/last-commit/the-berufegoru/work-whiz?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
- <img src="https://img.shields.io/github/languages/top/the-berufegoru/work-whiz?style=default&color=0080ff" alt="repo-top-language">
- <img src="https://img.shields.io/github/languages/count/the-berufegoru/work-whiz?style=default&color=0080ff" alt="repo-language-count">
+
 </p>
 <p align="center"><!-- default option, no dependency badges. -->
 </p>
@@ -33,7 +35,7 @@
 - [🔗 Table of Contents](#-table-of-contents)
 - [📍 Overview](#-overview)
 - [👾 Features](#-features)
-- [� Getting Started](#-getting-started)
+- [🚀 Getting Started](#-getting-started)
   - [☑️ Prerequisites](#️-prerequisites)
   - [⚙️ Installation](#️-installation)
   - [🤖 Usage](#-usage)
@@ -54,7 +56,6 @@
 ## 👾 Features
 
 <code>❯ REPLACE-ME</code>
-
 
 ## 🚀 Getting Started
 
