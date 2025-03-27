@@ -13,7 +13,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {},
+    "paths": {
+      "@work-whiz/*": ["src/*"]
+    },
     "esModuleInterop": true
   },
   "files": [],
