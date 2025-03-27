@@ -1,14 +1,31 @@
-import express from 'express';
+/**
+ *
+ *
+ *
+ */
+import express, { Application } from 'express';
+import dotenv from 'dotenv';
+import { configureMiddlewares } from '@work-whiz/middlewares';
+import { startServer } from './server';
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
+const result = dotenv.config();
+if (result.error) {
+  throw result.error;
+}
 
-const app = express();
+const app: Application = express();
 
-app.get('/', (req, res) => {
-  res.send({ message: 'Hello API' });
-});
+const PORT = Number(process.env.PORT) || 8080;
 
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
-});
+/**
+ * Configures middlewares for the Express application.
+ * @param {Application} app - The Express application instance.
+ */
+configureMiddlewares(app);
+
+/**
+ * Starts the Express server.
+ * @param {Application} app - The Express application instance.
+ * @param {number} port - The port number on which the server will listen.
+ */
+startServer(app, PORT);
