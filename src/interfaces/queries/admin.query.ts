@@ -2,7 +2,7 @@ import { Permissions } from '@work-whiz/types';
 
 interface IAdminQuery {
   id?: string;
-  fristname?: string;
+  firstName?: string;
   lastName?: string;
   permissions?: Array<Permissions>;
   userId?: string;
