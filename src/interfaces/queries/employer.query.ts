@@ -6,7 +6,7 @@ interface StringSearch {
 }
 
 interface IEmployerQuery {
-  id?: string | string[];
+  id?: string;
   userId?: string;
   name?: string | StringSearch;
   industry?: string | string[];
