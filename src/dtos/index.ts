@@ -1,7 +1,14 @@
-export { toAdminDto } from './admin';
+export { AdminDto, AdminResponseDto } from './admin.dto';
 
-export { toIEmployerDTO } from './employer';
+export {
+  AuthenticationDto,
+  AuthenticationResponseDto,
+  MfaSetupResponseDto,
+  OtpResponseDto,
+} from './authentication.dto';
 
-export { toISeekerDTO } from './seeker';
+export { CandidateDto, CandidateResponseDto } from './candidate.dto';
 
-export { toIUserDTO } from './user';
+export { EmployerDto, EmployerResponseDto } from './employer.dto';
+
+export { UserDto, UserResponseDto } from './user.dto';
