@@ -20,7 +20,7 @@ interface DateRange {
 }
 
 interface ICandidateQuery {
-  id?: string | string[];
+  id?: string;
   userId?: string;
   firstName?: string | StringSearch;
   lastName?: string | StringSearch;
