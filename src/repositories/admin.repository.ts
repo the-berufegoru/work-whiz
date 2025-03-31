@@ -10,6 +10,7 @@ import { AdminTransformer } from '@work-whiz/transformers';
 import { RepositoryError } from '@work-whiz/errors';
 import { Pagination } from '@work-whiz/utils';
 import { sequelize } from '@work-whiz/libs';
+import { UserModel } from '@work-whiz/models';
 
 /**
  * Repository for handling database operations for Admin entities
@@ -43,7 +44,6 @@ class AdminRepository implements IAdminRepository {
     if (query.lastName) {
       where.lastName = { [Op.iLike]: `%${query.lastName}%` };
     }
-
 
     if (query.permissions) {
       where.permissions = {
@@ -144,6 +144,7 @@ class AdminRepository implements IAdminRepository {
     try {
       const admin = await this.adminModel.scope('withUser').findOne({
         where: this.buildWhereClause(query),
+        include: [{ model: UserModel, as: 'user' }],
         ...this.getOptions(),
       });
       return admin ? AdminTransformer.toResponseDto(admin) : null;
@@ -171,15 +172,14 @@ class AdminRepository implements IAdminRepository {
   }> {
     const pagination = new Pagination(options);
     try {
-      const { rows, count } = await this.adminModel
-        .scope('withUser')
-        .findAndCountAll({
-          where: this.buildWhereClause(query),
-          offset: pagination.getOffset(),
-          limit: pagination.limit,
-          order: pagination.getOrder() ?? [['createdAt', 'ASC']],
-          ...this.getOptions(),
-        });
+      const { rows, count } = await this.adminModel.findAndCountAll({
+        where: this.buildWhereClause(query),
+        include: [{ model: UserModel, as: 'user' }],
+        offset: pagination.getOffset(),
+        limit: pagination.limit,
+        order: pagination.getOrder() ?? [['createdAt', 'ASC']],
+        ...this.getOptions(),
+      });
 
       return {
         admins: rows.map(AdminTransformer.toResponseDto),
