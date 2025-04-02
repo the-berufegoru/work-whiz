@@ -6,13 +6,13 @@ export class CandidateTransformer {
   static toDto(candidate: Partial<ICandidate>): CandidateDto {
     return plainToInstance(CandidateDto, candidate, {
       excludeExtraneousValues: false,
-      enableImplicitConversion: true
+      enableImplicitConversion: true,
     });
   }
 
   static toResponseDto(candidate: Partial<ICandidate>): CandidateResponseDto {
     return plainToInstance(CandidateResponseDto, candidate, {
-      excludeExtraneousValues: true
+      excludeExtraneousValues: true,
     });
   }
 }
