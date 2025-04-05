@@ -1,6 +1,8 @@
 import { validateSync } from 'class-validator';
-import { validatePhoneNumber, IsValidPhoneNumber } from '@work-whiz/validators/phone.validator';
-
+import {
+  validatePhoneNumber,
+  IsValidPhoneNumber,
+} from '@work-whiz/validators/phone.validator';
 
 describe('Phone Validation', () => {
   describe('validatePhoneNumber (standalone)', () => {
